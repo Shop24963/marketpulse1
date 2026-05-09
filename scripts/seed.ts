@@ -1,0 +1,10 @@
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import { User, MarketNews, Theme, CorporateAction } from '../apps/backend/src/models/index.js';
+await mongoose.connect(process.env.MONGODB_URI ?? 'mongodb://localhost:27017/marketpulse');
+const passwordHash = await bcrypt.hash('StrongPass123', 12);
+await User.updateOne({ email: 'demo@marketpulse.ai' }, { name: 'Demo Investor', email: 'demo@marketpulse.ai', passwordHash, role: 'admin' }, { upsert: true });
+await MarketNews.create({ source: 'NSE filings', url: `seed://${Date.now()}`, title: 'Reliance announces green energy update', body: 'Capacity expansion update', symbols: ['RELIANCE'], publishedAt: new Date(), summary: 'Green energy momentum update with execution risks to monitor.', sentimentScore: 72, sentimentLabel: 'Positive', momentumSignals: ['Theme momentum'], themes: ['Green Hydrogen'], risks: ['Execution timeline'] });
+await Theme.updateOne({ name: 'Green Hydrogen' }, { name: 'Green Hydrogen', description: 'Indian clean-energy supply chain opportunity map', symbols: ['RELIANCE', 'NTPC'], sentimentScore: 71, sectorMomentum: 68, insights: ['Contract activity supports continued monitoring.'], updatedAt: new Date() }, { upsert: true });
+await CorporateAction.create({ symbol: 'INFY', type: 'earnings', eventDate: new Date(Date.now() + 86400000 * 14), details: { period: 'Q1' } });
+await mongoose.disconnect();
