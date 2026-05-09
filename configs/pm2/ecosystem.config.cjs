@@ -1,0 +1,1 @@
+module.exports = { apps: [{ name: 'marketpulse-api', script: 'apps/backend/dist/server.js', instances: 'max', exec_mode: 'cluster' }, { name: 'marketpulse-workers', script: 'workers/dist/index.js', instances: 2 }] };

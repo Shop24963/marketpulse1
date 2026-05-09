@@ -1,0 +1,20 @@
+{
+  "name": "marketpulse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-powered stock intelligence platform for the Indian market ecosystem.",
+  "workspaces": ["apps/*", "packages/*", "workers"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @marketpulse/backend\" \"npm run dev --workspace @marketpulse/frontend\" \"npm run dev --workspace @marketpulse/workers\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.3"
+  },
+  "engines": { "node": ">=20.11" }
+}

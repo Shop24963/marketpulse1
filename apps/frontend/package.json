@@ -1,0 +1,8 @@
+{
+  "name": "@marketpulse/frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "dev": "vite --host 0.0.0.0", "build": "tsc -b && vite build", "preview": "vite preview", "typecheck": "tsc -b --noEmit", "test": "vitest run", "cypress": "cypress run" },
+  "dependencies": { "@marketpulse/shared": "file:../../packages/shared", "@vitejs/plugin-react": "^4.4.1", "axios": "^1.9.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "framer-motion": "^12.9.2", "lucide-react": "^0.503.0", "react": "^19.1.0", "react-dom": "^19.1.0", "react-query": "^3.39.3", "react-router-dom": "^7.5.3", "recharts": "^2.15.3", "socket.io-client": "^4.8.1", "tailwind-merge": "^3.2.0", "zustand": "^5.0.4" },
+  "devDependencies": { "@testing-library/react": "^16.3.0", "@types/react": "^19.1.2", "@types/react-dom": "^19.1.2", "autoprefixer": "^10.4.21", "cypress": "^14.3.2", "postcss": "^8.5.3", "tailwindcss": "^3.4.17", "typescript": "^5.8.3", "vite": "^6.3.4", "vitest": "^3.1.2" }
+}
